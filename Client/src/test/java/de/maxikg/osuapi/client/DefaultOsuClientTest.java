@@ -4,6 +4,7 @@ import de.maxikg.osuapi.client.exception.OsuClientConnectionException;
 import de.maxikg.osuapi.model.Beatmap;
 import de.maxikg.osuapi.model.GameMode;
 import de.maxikg.osuapi.model.User;
+import de.maxikg.osuapi.model.UserGame;
 import org.junit.*;
 
 import java.util.Collection;
@@ -20,7 +21,7 @@ public class DefaultOsuClientTest {
 
     @Before
     public void prepare() {
-        String apiKey = System.getProperty("osuApiKey");
+        String apiKey = System.getProperty("osuApiKey", System.getenv("osuApiKey"));
         if (apiKey == null)
             throw new AssumptionViolatedException("API key not set.");
 
@@ -55,11 +56,35 @@ public class DefaultOsuClientTest {
 
     // testGetMatch: Matches are only kept for a month. So this test would be inconsistent.
 
-    // testGetScores: Scores are also inconsistent.
+    @Test
+    public void testGetScores() {
+        try {
+            osuClient.getScores(75)
+                    .query();
+        } catch (OsuClientConnectionException e) {
+            throw cannotConnect(e);
+        }
+    }
 
-    // testGetUserBest: User related highscores are also inconsistent.
+    @Test
+    public void testGetUserBest() {
+        try {
+            osuClient.getUserBestById(2)
+                    .query();
+        } catch (OsuClientConnectionException e) {
+            throw cannotConnect(e);
+        }
+    }
 
-    // testGetUserRecent: User related game histories are also inconsistent.
+    @Test
+    public void testGetUserRecent() {
+        try {
+            osuClient.getUserRecentById(2)
+                    .query();
+        } catch (OsuClientConnectionException e) {
+            throw cannotConnect(e);
+        }
+    }
 
     @Test
     public void testGetUser() {
