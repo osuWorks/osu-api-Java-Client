@@ -15,7 +15,7 @@ installation is required.
 
  1. Clone the repository: `git clone https://github.com/osuWorks/osu-api-Java-Client.git`
  2. Switching into the repository directory: `cd osu-api-Java-Client`
- 3. Trigger maven goals: `mvn clean install`
+ 3. Trigger maven goals: `mvn clean install -Dmaven.test.skip=true`
 
 After a successful build you can use the components:
 
