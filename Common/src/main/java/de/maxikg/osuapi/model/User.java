@@ -44,7 +44,7 @@ public class User {
     private float level;
 
     @JsonProperty("pp_raw")
-    private int ppRaw;
+    private float ppRaw;
 
     @JsonProperty("accuracy")
     private float accuracy;

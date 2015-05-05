@@ -39,7 +39,7 @@ public class Beatmap {
     private int beatmapSetId;
 
     @JsonProperty("bpm")
-    private int bpm;
+    private float bpm;
 
     @JsonProperty("creator")
     private String creator;

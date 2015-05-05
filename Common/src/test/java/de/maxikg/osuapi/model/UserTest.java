@@ -35,7 +35,7 @@ public class UserTest {
         assertThat(first.getTotalScore(), equalTo(999999998L));
         assertThat(first.getPpRank(), equalTo(2442));
         assertThat((double) first.getLevel(), closeTo(50.5050, 0.0001));
-        assertThat(first.getPpRaw(), equalTo(3113));
+        assertThat((double) first.getPpRaw(), closeTo(3113, 0.1));
         assertThat((double) first.getAccuracy(), closeTo(98.1234, 0.0001));
         assertThat(first.getCountRankSs(), equalTo(54));
         assertThat(first.getCountRankS(), equalTo(81));

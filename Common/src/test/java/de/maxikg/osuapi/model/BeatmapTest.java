@@ -30,7 +30,7 @@ public class BeatmapTest {
         assertThat(first.getArtist(), equalTo("Luxion"));
         assertThat(first.getBeatmapId(), equalTo(252002));
         assertThat(first.getBeatmapSetId() ,equalTo(93398));
-        assertThat(first.getBpm(), equalTo(196));
+        assertThat((double) first.getBpm(), closeTo(196, 0.1));
         assertThat(first.getCreator(), equalTo("RikiH_"));
         assertThat((double) first.getDifficultyRating(), closeTo(5.59516, 0.00001));
         assertThat(first.getDifficultySize(), equalTo(4));
