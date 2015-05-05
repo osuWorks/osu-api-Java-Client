@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
+import de.maxikg.osuapi.client.exception.OsuClientConnectionException;
 import de.maxikg.osuapi.client.exception.OsuClientException;
 import de.maxikg.osuapi.client.exception.OsuClientRequestException;
 import org.apache.http.HttpHeaders;
@@ -11,6 +12,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
@@ -71,6 +73,8 @@ public abstract class AbstractRequestBuilder {
         HttpResponse response;
         try {
             response = client.execute(request);
+        } catch (HttpHostConnectException e) {
+            throw new OsuClientConnectionException("Cannot connect to api host.", e);
         } catch (IOException e) {
             throw new OsuClientRequestException("Cannot execute api request.", e);
         }
