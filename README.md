@@ -1,5 +1,7 @@
 # osu!api Wrapper for Java
 
+[![Build Status](https://travis-ci.org/osuWorks/osu-api-Java-Client.svg)](https://travis-ci.org/osuWorks/osu-api-Java-Client)
+
 This is an open source Java API wrapper for the [osu!api](http://osu.ppy.sh/api), the public API of
 [the game osu!](http://osu.ppy.sh).
 
