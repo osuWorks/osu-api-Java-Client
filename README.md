@@ -17,6 +17,7 @@ installation is required.
 
 After a successful build you can use the components:
 
+for API common utils (models, serializers, ...):
 ```
 <dependency>
     <groupId>de.maxikg</groupId>
@@ -24,8 +25,8 @@ After a successful build you can use the components:
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-for API common utils (models, serializers, ...).
 
+for the API client:
 ```
 <dependency>
     <groupId>de.maxikg</groupId>
@@ -33,7 +34,6 @@ for API common utils (models, serializers, ...).
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-for the API client.
 
 ## Usage
 
@@ -47,7 +47,7 @@ See [LICENSE.md](./LICENSE.md).
 
 ## Contribution
 
-See [CONTRIBUTION.md](./CONTRIBUTE.md).
+See [CONTRIBUTE.md](./CONTRIBUTE.md).
 
 ## Links
 
