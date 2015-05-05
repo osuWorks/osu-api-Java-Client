@@ -4,7 +4,6 @@ import de.maxikg.osuapi.client.exception.OsuClientConnectionException;
 import de.maxikg.osuapi.model.Beatmap;
 import de.maxikg.osuapi.model.GameMode;
 import de.maxikg.osuapi.model.User;
-import de.maxikg.osuapi.model.UserGame;
 import org.junit.*;
 
 import java.util.Collection;
