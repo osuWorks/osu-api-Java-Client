@@ -6,6 +6,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import de.maxikg.osuapi.client.exception.OsuClientException;
 import de.maxikg.osuapi.client.exception.OsuClientRequestException;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -22,6 +23,7 @@ import java.util.Map;
 public abstract class AbstractRequestBuilder {
 
     private static final String PARAM_API_KEY = "k";
+    private static final String USER_AGENT = "osu!works Java Client/1.0";
 
     protected final Map<String, Object> parameters = Maps.newHashMap();
     private final ObjectMapper objectMapper;
@@ -58,11 +60,17 @@ public abstract class AbstractRequestBuilder {
         }
         uriBuilder.setParameter(PARAM_API_KEY, apiKey);
 
-        HttpResponse response;
+        HttpGet request;
         try {
-            response = client.execute(new HttpGet(uriBuilder.build()));
+            request = new HttpGet(uriBuilder.build());
         } catch (URISyntaxException e) {
             throw new OsuClientException("Cannot construct url.");
+        }
+        request.setHeader(HttpHeaders.USER_AGENT, USER_AGENT);
+
+        HttpResponse response;
+        try {
+            response = client.execute(request);
         } catch (IOException e) {
             throw new OsuClientRequestException("Cannot execute api request.", e);
         }
