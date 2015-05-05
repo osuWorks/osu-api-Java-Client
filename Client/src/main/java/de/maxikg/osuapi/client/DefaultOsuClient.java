@@ -2,23 +2,26 @@ package de.maxikg.osuapi.client;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Throwables;
 import de.maxikg.osuapi.client.request.builder.*;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+
+import java.io.IOException;
 
 /**
  * @author maxikg
  */
 @RequiredArgsConstructor
-public class DefaultOsuClient implements OsuClient {
+public class DefaultOsuClient implements CloseableOsuClient {
 
     private static final String DEFAULT_OSU_API_ENDPOINT = "https://osu.ppy.sh/api/";
 
     private final ObjectMapper objectMapper = new ObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    private final HttpClient httpClient = HttpClients.createDefault();
+    private final CloseableHttpClient httpClient = HttpClients.createDefault();
     @NonNull private final String baseUrl;
     @NonNull private final String apiKey;
 
@@ -69,5 +72,14 @@ public class DefaultOsuClient implements OsuClient {
     @Override
     public GetMatchRequestBuilder getMatch(int id) {
         return new DefaultGetMatchRequestBuilder(objectMapper, httpClient, baseUrl, apiKey, id);
+    }
+
+    @Override
+    public void close() {
+        try {
+            httpClient.close();
+        } catch (IOException e) {
+            throw Throwables.propagate(e);
+        }
     }
 }
