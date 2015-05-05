@@ -1,0 +1,35 @@
+[{
+  "match":{
+    "match_id"     : "1936471",
+    "name"         : "Marcin's game",
+    "start_time"   : "2013-10-06 03:34:54",
+    "end_time"     : null
+  },
+  "games":[{
+    "game_id"      : "45668898",
+    "start_time"   : "2013-10-06 03:36:27",
+    "end_time"     : "2013-10-06 03:40:01",
+    "beatmap_id"   : "181717",
+    "play_mode"    : "0",
+    "match_type"   : "0",
+    "scoring_type" : "0",
+    "team_type"    : "0",
+    "mods"         : "0",
+    "scores"       : [{
+      "slot"          : "0",
+      "team"          : "0",
+      "user_id"       : "722665",
+      "score"         : "3415874",
+      "maxcombo"      : "411",
+      "rank"          : "0",
+      "count50"       : "0",
+      "count100"      : "11",
+      "count300"      : "425",
+      "countmiss"     : "1",
+      "countgeki"     : "67",
+      "countkatu"     : "9",
+      "perfect"       : "0",
+      "pass"          : "1"
+    }]
+  }]
+}]

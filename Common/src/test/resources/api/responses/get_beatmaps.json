@@ -1,0 +1,21 @@
+[{
+  "approved"         : "1",
+  "approved_date"    : "2013-07-02 01:01:12",
+  "last_update"      : "2013-07-06 16:51:22",
+  "artist"           : "Luxion",
+  "beatmap_id"       : "252002",
+  "beatmapset_id"    : "93398",
+  "bpm"              : "196",
+  "creator"          : "RikiH_",
+  "difficultyrating" : "5.59516",
+  "diff_size"        : "4",
+  "diff_overall"     : "6",
+  "diff_approach"    : "7",
+  "diff_drain"       : "6",
+  "hit_length"       : "113",
+  "source"           : "BMS",
+  "title"            : "High-Priestess",
+  "total_length"     : "145",
+  "version"          : "Overkill",
+  "mode"             : "0"
+}]

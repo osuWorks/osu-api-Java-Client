@@ -1,0 +1,18 @@
+[{
+  "beatmap_id"   : "222342",
+  "score"        : "1234567",
+  "username"     : "User name",
+  "maxcombo"     : "321",
+  "count300"     : "300",
+  "count100"     : "50",
+  "count50"      : "10",
+  "countmiss"    : "1",
+  "countkatu"    : "10",
+  "countgeki"    : "50",
+  "perfect"      : "0",
+  "enabled_mods" : "76",
+  "user_id"      : "1",
+  "date"         : "2013-06-22 9:11:16",
+  "rank"         : "SH",
+  "pp"           : "1.3019"
+}]

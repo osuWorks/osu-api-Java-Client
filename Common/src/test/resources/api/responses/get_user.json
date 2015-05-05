@@ -1,0 +1,25 @@
+[{
+  "user_id"      : "1",
+  "username"     : "User name",
+  "count300"     : "1337",
+  "count100"     : "123",
+  "count50"      : "69",
+  "playcount"    : "42",
+  "ranked_score" : "666666",
+  "total_score"  : "999999998",
+  "pp_rank"      : "2442",
+  "level"        : "50.5050",
+  "pp_raw"       : "3113",
+  "accuracy"     : "98.1234",
+  "count_rank_ss": "54",
+  "count_rank_s" : "81",
+  "count_rank_a" : "862",
+  "country"      : "DE",
+  "events"       : [{
+    "display_html"  : "<img src='\/images\/A_small.png'\/>...",
+    "beatmap_id"    : "222342",
+    "beatmapset_id" : "54851",
+    "date"          : "2013-07-07 22:34:04",
+    "epicfactor"    : "1"
+  }]
+}]
