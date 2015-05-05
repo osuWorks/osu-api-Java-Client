@@ -20,7 +20,7 @@ public class DefaultOsuClientTest {
 
     @Before
     public void prepare() {
-        String apiKey = System.getProperty("osu.api.key");
+        String apiKey = System.getProperty("osuApiKey");
         if (apiKey == null)
             throw new AssumptionViolatedException("API key not set.");
 
