@@ -1,5 +1,6 @@
 language: java
 after_success:
+  - chmod +x .travis/deploy_site.sh
   - .travis/deploy_site.sh
 notifications:
   email: false
