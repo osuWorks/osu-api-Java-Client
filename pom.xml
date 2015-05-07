@@ -198,16 +198,16 @@
                                 <goals>
                                     <goal>publish-scm</goal>
                                 </goals>
-                                <configuration>
-                                    <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
-                                    <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
-                                    <content>${project.reporting.outputDirectory}/apidocs</content>
-                                    <skipDeletedFiles>true</skipDeletedFiles>
-                                    <pubScmUrl>scm:git:https://github.com/osuWorks/osu-api-Java-Client.git</pubScmUrl>
-                                    <scmBranch>gh-pages</scmBranch>
-                                </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
+                            <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
+                            <content>${project.reporting.outputDirectory}/apidocs</content>
+                            <skipDeletedFiles>true</skipDeletedFiles>
+                            <pubScmUrl>scm:git:https://github.com/osuWorks/osu-api-Java-Client.git</pubScmUrl>
+                            <scmBranch>gh-pages</scmBranch>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
