@@ -1,3 +1,5 @@
 language: java
+after_success:
+  - .travis/deploy_site.sh
 notifications:
   email: false

@@ -8,6 +8,7 @@
     <artifactId>osu-apiwrapper-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <url>https://github.com/osuWorks/osu-api-Java-Client</url>
 
     <properties>
         <jackson.version>2.5.3</jackson.version>
@@ -24,6 +25,12 @@
         <module>Common</module>
         <module>Client</module>
     </modules>
+
+    <scm>
+        <url>https://github.com/osuWorks/osu-api-Java-Client</url>
+        <connection>scm:git:https://github.com/osuWorks/osu-api-Java-Client.git</connection>
+        <developerConnection>scm:git:git@github.com:osuWorks/osu-api-Java-Client.git</developerConnection>
+    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -82,6 +89,24 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
+                    <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
+                    <content>${project.reporting.outputDirectory}/apidocs</content>
+                    <skipDeletedFiles>true</skipDeletedFiles>
+                    <pubScmUrl>${project.scm.developerConnection}</pubScmUrl>
+                    <scmBranch>gh-pages</scmBranch>
                 </configuration>
             </plugin>
         </plugins>
