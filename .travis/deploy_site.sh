@@ -7,5 +7,5 @@ if [ "$TRAVIS_REPO_SLUG" == "osuWorks/osu-api-Java-Client" ] \
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "travis-ci"
 
-    mvn javadoc:javadoc scm-publish:publish-scm --settings $(dirname $0)/settings.xml
+    mvn javadoc:javadoc scm-publish:publish-scm -P site -DskipTests --settings $(dirname $0)/settings.xml
 fi
