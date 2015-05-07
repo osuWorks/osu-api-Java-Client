@@ -98,6 +98,7 @@
                 <executions>
                     <execution>
                         <id>generate-javadoc-jar</id>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
@@ -113,7 +114,7 @@
                 <executions>
                     <execution>
                         <id>aggregate-client-javadocs</id>
-                        <phase>generate-sources</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -128,7 +129,7 @@
                     </execution>
                     <execution>
                         <id>aggregate-common-javadocs</id>
-                        <phase>generate-sources</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
@@ -147,14 +148,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-scm-publish-plugin</artifactId>
                 <version>1.1</version>
-                <configuration>
-                    <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
-                    <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
-                    <content>${project.reporting.outputDirectory}/apidocs</content>
-                    <skipDeletedFiles>true</skipDeletedFiles>
-                    <pubScmUrl>scm:git:https://github.com/osuWorks/osu-api-Java-Client.git</pubScmUrl>
-                    <scmBranch>gh-pages</scmBranch>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>publish-site</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>publish-scm</goal>
+                        </goals>
+                        <configuration>
+                            <checkoutDirectory>${project.build.directory}/scmpublish</checkoutDirectory>
+                            <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
+                            <content>${project.reporting.outputDirectory}/apidocs</content>
+                            <skipDeletedFiles>true</skipDeletedFiles>
+                            <pubScmUrl>scm:git:https://github.com/osuWorks/osu-api-Java-Client.git</pubScmUrl>
+                            <scmBranch>gh-pages</scmBranch>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.projectlombok</groupId>
